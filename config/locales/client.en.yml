@@ -1,0 +1,8 @@
+en:
+  js:
+    groups:
+      civically: "Civically"
+  admin_js:
+    admin:
+      groups:
+        category_id: "Group category id"

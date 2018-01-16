@@ -1,0 +1,11 @@
+{{#admin-nav}}
+  {{nav-item route='adminGroupsType' routeParam='custom' label='admin.groups.custom'}}
+  {{#if currentUser.admin}}
+    {{nav-item route='adminGroupsType' routeParam='automatic' label='admin.groups.automatic'}}
+    {{nav-item route='adminGroups.bulk' label='admin.groups.bulk'}}
+  {{/if}}
+{{/admin-nav}}
+
+<div class="admin-container">
+  {{outlet}}
+</div>

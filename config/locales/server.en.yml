@@ -1,0 +1,84 @@
+en:
+  group:
+    petition:
+      intro:
+        title: "Group Petition"
+        description: |
+          Create a petition for a group to be added to your home place.
+          <div class="image-container">
+            <img class='small' src='%{base_url}/plugins/civically-user/images/group_1.svg'>
+            <img class='small' src='%{base_url}/plugins/civically-user/images/group_3.svg'>
+            <img class='small' src='%{base_url}/plugins/civically-user/images/group_2.svg'>
+            <img class='small' src='%{base_url}/plugins/civically-user/images/group_4.svg'>
+          </div>
+          Please read <a href='/faq#creating_a_group'>Creating a Group</a> before you start.
+      profile:
+        title: "Profile"
+        description: "Add a short name, full name and a description."
+        name:
+          label: "Short Name"
+          placeholder: "no spaces, same as a username"
+        full_name:
+          label: "Full Name"
+          placeholder: "The group 'display' name"
+        about:
+          label: "About"
+          placeholder: "Describe what your group does"
+      users:
+        title: "Users"
+        description: "Specify the group owners, members and member details"
+        owners:
+          label: "Owners"
+        members:
+          label: "Members"
+        member_title:
+          label: "Member Title (Optional)"
+        avatar_flair_image:
+          label: "Member Avatar Flair Image (Optional)"
+          placeholder: "Image URL or Font Awesome Class"
+        avatar_flair_background_color:
+          label: "Member Avatar Flair Background Color (Optional)"
+          placeholder: "Hex color value"
+      permissions:
+        title: "Permissions"
+        description: "Specify the group permissions."
+        levels:
+          nobody: "Nobody"
+          only_admins: "Only admins"
+          mods_and_admins: "Only moderators and Admins"
+          members_mods_and_admins: "Only group members, moderators and admins"
+          everyone: "Everyone"
+        visibility:
+          label: "Visibility"
+          description: "Who can see this group?"
+          levels:
+            public: "Everyone"
+            members: "Group owners, members and admins"
+            staff: "Group owners and staff"
+            owners: "Group owners and admins"
+        join:
+          label: "Join Freely"
+          description: "Allow users to join group freely (Requires publicly visible group)"
+        leave:
+          label: "Leave Freely"
+          description: "Allow users to leave group freely"
+        request:
+          label: "Requests"
+          description: "Allow users to send membership requests to group owners"
+        mention:
+          label: "Mention"
+          description: "Who can @mention this group?"
+        message:
+          label: "Message"
+          description: "Who can message this group"
+      submit:
+        title: "Submit"
+        description: |
+          When you submit this form a petition to create this group will be created.
+          The petition needs at least 30^ people who live in your place to support it.
+          <br>
+          <img class='large' src='%{base_url}/plugins/civically-place/images/ballot_box.svg'>
+          <br>
+          Read <a href='/faq#creating_a_group' target='_blank'>Creating a Group</a> to learn more.
+          <br><br>
+          <span style='font-size:13px'>^ Or 5% of the population. Whichever is lower.</span>

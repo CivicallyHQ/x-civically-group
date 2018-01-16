@@ -1,0 +1,8 @@
+<div>
+  <label for="category-id">{{i18n 'admin.groups.category_id'}}</label>
+  {{#if availablePlaces}}
+    {{combo-box value=group.custom_fields.category_id
+                content=availablePlaces
+                filterable=true}}
+  {{/if}}
+</div>

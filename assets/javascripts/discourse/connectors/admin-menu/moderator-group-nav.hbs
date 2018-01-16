@@ -1,0 +1,5 @@
+{{#if currentUser.staff}}
+  {{#unless currentUser.admin}}
+    {{nav-item route='adminGroups' label='admin.groups.title'}}
+  {{/unless}}
+{{/if}}

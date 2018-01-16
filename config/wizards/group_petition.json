@@ -1,0 +1,152 @@
+{
+  "id": "group_petition",
+  "name": "Group Petition",
+  "background": "AliceBlue",
+  "save_submissions": true,
+  "multiple_submissions": true,
+  "min_trust": "2",
+  "steps": [
+    {
+      "id": "intro",
+      "key": "group.petition.intro"
+    },
+    {
+      "id": "profile",
+      "key": "group.petition.profile",
+      "fields": [
+        {
+          "id": "name",
+          "type": "text",
+          "key": "group.petition.profile.name",
+          "min_length": "4",
+          "required": true
+        },
+        {
+          "id": "full_name",
+          "key": "group.petition.profile.full_name",
+          "required": true,
+          "type": "text",
+          "min_length": "4"
+        },
+        {
+          "id": "about",
+          "key": "group.petition.profile.about",
+          "type": "textarea",
+          "min_length": "100",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "users",
+      "key": "group.petition.users",
+      "fields": [
+        {
+          "id": "owners",
+          "type": "user-selector",
+          "key": "group.petition.users.owners",
+          "required": true
+        },
+        {
+          "id": "members",
+          "key": "group.petition.users.members",
+          "required": true,
+          "type": "user-selector"
+        },
+        {
+          "id": "member_title",
+          "key": "group.petition.users.member_title",
+          "type": "text"
+        },
+        {
+          "id": "avatar_flair_image",
+          "key": "group.petition.users.avatar_flair_image",
+          "type": "text"
+        },
+        {
+          "id": "avatar_flair_background_color",
+          "key": "group.petition.users.avatar_flair_background_color",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "permissions",
+      "key": "group.petition.permissions",
+      "fields": [
+        {
+          "id": "visibility",
+          "key": "group.petition.permissions.visibility",
+          "type": "dropdown",
+          "choices_type": "translation",
+          "choices_key": "group.petition.permissions.visibility.levels"
+        },
+        {
+          "id": "join",
+          "key": "group.petition.permissions.join",
+          "type": "checkbox"
+        },
+        {
+          "id": "leave",
+          "key": "group.petition.permissions.leave",
+          "type": "checkbox"
+        },
+        {
+          "id": "request",
+          "key": "group.petition.permissions.request",
+          "type": "checkbox"
+        },
+        {
+          "id": "mention",
+          "key": "group.petition.permissions.mention",
+          "type": "dropdown",
+          "choices_type": "translation",
+          "choices_key": "group.petition.permissions.levels"
+        },
+        {
+          "id": "message",
+          "key": "group.petition.permissions.message",
+          "type": "dropdown",
+          "choices_type": "translation",
+          "choices_key": "group.petition.permissions.levels"
+        }
+      ]
+    },
+    {
+      "id": "submit",
+      "key": "group.petition.submit",
+      "actions": [
+        {
+          "id": "create_petition",
+          "type": "create_topic",
+          "post_builder": true,
+          "add_fields": [
+            {
+              "key": "topic.custom_fields.petition",
+              "value_custom": "true"
+            },
+            {
+              "key": "topic.custom_fields.petition_type",
+              "value_custom": "group"
+            },
+            {
+              "key": "topic.custom_fields.petition_status",
+              "value_custom": "open"
+            },
+            {
+              "key": "subtype",
+              "value_custom": "voting"
+            }
+          ],
+          "post_template": "Petition for a new group:\nName: w{name}\nFull Name: w{full_name}\nAbout: w{about}\nOwners: w{owners}\nMembers: w{members}\nMember Title: w{member_title}\nAvatar Flair Image: ![avatar flair image](w{avatar_flair_image})\nAvatar Flair Background Color: w{avatar_flair_background_color}\nVisibility: w{visibility}\nJoin: w{join}\nLeave: w{leave}\nRequest: w{request}\nMention: w{mention}\nMessage: w{message}",
+          "category_id": 9,
+          "title": "full_name",
+          "custom_category_enabled": true,
+          "custom_category_user_field": true,
+          "custom_category_wizard_field": false,
+          "custom_category_user_field_key": "custom_fields.place_category_id"
+        }
+      ]
+    }
+  ]
+}
