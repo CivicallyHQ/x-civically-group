@@ -11,7 +11,7 @@ en:
             <img class='small' src='%{base_url}/plugins/civically-user/images/group_2.svg'>
             <img class='small' src='%{base_url}/plugins/civically-user/images/group_4.svg'>
           </div>
-          Please read <a href='/faq#creating_a_group'>Creating a Group</a> before you start.
+          Please read <a href='/t/creating-a-group'>Creating a Group</a> before you start.
       profile:
         title: "Profile"
         description: "Add a short name, full name and a description."
@@ -79,6 +79,6 @@ en:
           <br>
           <img class='large' src='%{base_url}/plugins/civically-place/images/ballot_box.svg'>
           <br>
-          Read <a href='/faq#creating_a_group' target='_blank'>Creating a Group</a> to learn more.
+          Read <a href='/t/creating-a-group' target='_blank'>Creating a Group</a> to learn more.
           <br><br>
           <span style='font-size:13px'>^ Or 5% of the population. Whichever is lower.</span>
