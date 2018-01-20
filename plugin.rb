@@ -110,6 +110,10 @@ after_initialize do
         groups = groups.select { |g| g.custom_fields['category_id'].to_i === category_id.to_i }
       end
 
+      if meta = params[:meta] === 'true'
+        groups = groups.select { |g| !g.custom_fields['category_id'] }
+      end
+
       if params[:ignore_automatic].to_s == "true"
         groups = groups.where(automatic: false)
       end

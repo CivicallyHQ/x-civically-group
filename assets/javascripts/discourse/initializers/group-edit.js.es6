@@ -37,16 +37,30 @@ export default {
         queryParams: {
           category_id: {
             refreshModel: true
+          },
+          meta: {
+            refreshModel: true
+          }
+        },
+
+        redirect(model, transition) {
+          if (Object.keys(transition.queryParams).length === 0) {
+            const placeCategoryId = this.get('currentUser.place_category_id');
+            if (placeCategoryId) {
+              this.replaceWith({queryParams: { category_id: placeCategoryId }});
+            } else {
+              this.replaceWith({queryParams: { meta: true }});
+            }
           }
         },
 
         model(params) {
           return Group.findAll(params);
-        },
+        }
       });
 
       api.modifyClass('controller:groups', {
-        queryParams: ['category_id'],
+        queryParams: ['category_id', 'meta'],
       });
     });
   }
