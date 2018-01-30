@@ -58,6 +58,13 @@ after_initialize do
         group_params[:custom_fields].each do |key, value|
           group.custom_fields[key] = value
         end
+
+        if group.custom_fields['category_id']
+          Jobs.enqueue(:bulk_unread_lists_update,
+            place_category_id: group.custom_fields['category_id'],
+            add_lists: ['group']
+          )
+        end
       end
       super(group)
     end
