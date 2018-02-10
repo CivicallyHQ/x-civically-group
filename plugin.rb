@@ -10,11 +10,10 @@ after_initialize do
   Group.register_custom_field_type('category_id', :integer)
   Group.preloaded_custom_fields << "category_id" if Group.respond_to? :preloaded_custom_fields
 
-  unless PluginStoreRow.exists?(plugin_name: 'custom_wizard', key: 'group_petition')
-    CustomWizard::Wizard.add_wizard(File.read(File.join(
-      Rails.root, 'plugins', 'x-civically-group', 'config', 'wizards', 'group_petition.json'
-    )))
-  end
+  ## 'migration' to be wrapped in conditional
+  CustomWizard::Wizard.add_wizard(File.read(File.join(
+    Rails.root, 'plugins', 'x-civically-group', 'config', 'wizards', 'group_petition.json'
+  )))
 
   CustomWizard::Builder.add_step_handler('group_petition') do |builder|
     if builder.updater && builder.updater.step && builder.updater.step.id === 'profile'
