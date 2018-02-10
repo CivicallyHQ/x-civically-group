@@ -52,10 +52,6 @@ export default {
               this.replaceWith({queryParams: { meta: true }});
             }
           }
-        },
-
-        model(params) {
-          return Group.findAll(params);
         }
       });
 

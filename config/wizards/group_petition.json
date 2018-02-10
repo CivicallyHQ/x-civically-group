@@ -8,7 +8,8 @@
   "steps": [
     {
       "id": "intro",
-      "key": "group.petition.intro"
+      "key": "group.petition.intro",
+      "banner": "/plugins/civically-group-extension/images/group.png"
     },
     {
       "id": "profile",
@@ -115,6 +116,7 @@
     {
       "id": "submit",
       "key": "group.petition.submit",
+      "banner": "/plugins/civically-place/images/ballot_box.png",
       "actions": [
         {
           "id": "create_petition",
@@ -132,6 +134,10 @@
             {
               "key": "topic.custom_fields.petition_status",
               "value_custom": "open"
+            },
+            {
+              "key": "topic.custom_fields.petition_vote_threshold",
+              "value_custom": 30
             },
             {
               "key": "subtype",

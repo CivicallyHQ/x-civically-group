@@ -3,15 +3,7 @@ en:
     petition:
       intro:
         title: "Group Petition"
-        description: |
-          Create a petition for a group to be added to your home place.
-          <div class="image-container">
-            <img class='small' src='%{base_url}/plugins/civically-user/images/group_1.svg'>
-            <img class='small' src='%{base_url}/plugins/civically-user/images/group_3.svg'>
-            <img class='small' src='%{base_url}/plugins/civically-user/images/group_2.svg'>
-            <img class='small' src='%{base_url}/plugins/civically-user/images/group_4.svg'>
-          </div>
-          Please read <a href='/t/creating-a-group'>Creating a Group</a> before you start.
+        description: "Create a petition for a group to be added to your home place."
       profile:
         title: "Profile"
         description: "Add a short name, full name and a description."
@@ -76,9 +68,3 @@ en:
         description: |
           When you submit this form a petition to create this group will be created.
           The petition needs at least 30^ people who live in your place to support it.
-          <br>
-          <img class='large' src='%{base_url}/plugins/civically-place/images/ballot_box.svg'>
-          <br>
-          Read <a href='/t/creating-a-group' target='_blank'>Creating a Group</a> to learn more.
-          <br><br>
-          <span style='font-size:13px'>^ Or 5% of the population. Whichever is lower.</span>

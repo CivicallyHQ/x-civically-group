@@ -1,5 +1,7 @@
 {{#d-section pageClass="groups"}}
   <h1>{{i18n "groups.index.title"}}</h1>
+
+  <!-- addition -->
   <div class='admin-controls'>
     <div class='span15'>
       <ul class="nav nav-pills">
@@ -18,6 +20,8 @@
       </ul>
     </div>
   </div>
+  <!-- end addition -->
+
   {{#if groups}}
     {{#load-more selector=".groups-table .groups-table-row" action="loadMore"}}
       <div class='container'>
