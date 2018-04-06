@@ -1,5 +1,7 @@
 import { withPluginApi } from 'discourse/lib/plugin-api';
 import Group from 'discourse/models/group';
+import GroupsIndexRoute from 'discourse/routes/groups-index';
+import GroupsIndexController from 'discourse/controllers/groups-index';
 
 export default {
   name: 'group-edit',
@@ -33,15 +35,11 @@ export default {
         }
       });
 
-      api.modifyClass('route:groups', {
-        queryParams: {
-          category_id: {
-            refreshModel: true
-          },
-          meta: {
-            refreshModel: true
-          }
-        },
+      api.modifyClass('route:groups-index', {
+        queryParams: Object.assign({}, GroupsIndexRoute.queryParams, {
+          category_id: { refreshModel: true },
+          meta: { refreshModel: true }
+        }),
 
         redirect(model, transition) {
           if (Object.keys(transition.queryParams).length === 0) {
@@ -55,9 +53,10 @@ export default {
         }
       });
 
-      api.modifyClass('controller:groups', {
-        queryParams: ['category_id', 'meta'],
-      });
+      const groupsIndexController = GroupsIndexController.create();
+      let existingParams = groupsIndexController.get('queryParams').map((v) => v);
+      let queryParams = existingParams.push(...['category_id', 'meta']);
+      api.modifyClass('controller:groups-index', { queryParams });
     });
   }
 };
