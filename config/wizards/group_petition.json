@@ -128,7 +128,7 @@
               "value_custom": "true"
             },
             {
-              "key": "topic.custom_fields.petition_type",
+              "key": "topic.custom_fields.petition_id",
               "value_custom": "group"
             },
             {
