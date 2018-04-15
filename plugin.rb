@@ -132,6 +132,7 @@ after_initialize do
     end
   end
 
+  add_to_serializer(:basic_group, :category_id) { object.custom_fields["category_id"] }
   add_to_serializer(:basic_group, :custom_fields) { object.custom_fields }
   add_to_serializer(:basic_group, :url) { "/groups/#{object.name}" }
 end
