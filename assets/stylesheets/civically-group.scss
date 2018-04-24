@@ -1,4 +1,22 @@
-.moderator-group-nav {
-  @extend .nav-pills;
-  float: left;
+.groups-page #main-outlet section, .groups-new-page #main-outlet section {
+  background-color: $secondary;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 60px;
+}
+
+.groups-page .admin-controls {
+  margin-bottom: 15px;
+  background-color: $secondary;
+  border-radius: 4px;
+}
+
+.group-info {
+  span {
+    display: block;
+  }
+
+  .group-place-container {
+    margin-top: 10px;
+  }
 }

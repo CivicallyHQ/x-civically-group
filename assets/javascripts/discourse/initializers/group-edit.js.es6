@@ -9,24 +9,6 @@ export default {
     const currentUser = container.lookup('current-user:main');
 
     withPluginApi('0.8.12', api => {
-      if (currentUser && currentUser.staff) {
-        api.modifyClass('route:admin-groups-type', {
-          model(params) {
-            this.set("type", params.type);
-            const user = this.currentUser;
-            let opts = {};
-
-            if (!user.admin) {
-              opts['category_id'] = user.moderator_category_id;
-            }
-
-            return Group.findAll(opts).then(function(gs) {
-              return gs.filterBy("type", params.type);
-            });
-          }
-        });
-      }
-
       api.modifyClass('model:group', {
         asJSON() {
           let attrs = this._super();
@@ -37,9 +19,11 @@ export default {
 
       api.modifyClass('route:groups-index', {
         queryParams: Object.assign({}, GroupsIndexRoute.queryParams, {
-          category_id: { refreshModel: true },
-          meta: { refreshModel: true }
+          category_id: { refreshModel: true, replace: true },
+          meta: { refreshModel: true, replace: true }
         }),
+
+        refreshQueryWithoutTransition: false,
 
         redirect(model, transition) {
           if (Object.keys(transition.queryParams).length === 0) {
@@ -50,6 +34,10 @@ export default {
               this.replaceWith({queryParams: { meta: true }});
             }
           }
+        },
+
+        renderTemplate() {
+          this.render('groups-wrapper');
         }
       });
 
