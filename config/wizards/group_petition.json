@@ -124,10 +124,6 @@
           "post_builder": true,
           "add_fields": [
             {
-              "key": "topic.custom_fields.petition",
-              "value_custom": "true"
-            },
-            {
               "key": "topic.custom_fields.petition_id",
               "value_custom": "group"
             },
@@ -141,7 +137,7 @@
             },
             {
               "key": "subtype",
-              "value_custom": "voting"
+              "value_custom": "petition"
             }
           ],
           "post_template": "Petition for a new group:\nName: w{name}\nFull Name: w{full_name}\nAbout: w{about}\nOwners: w{owners}\nMembers: w{members}\nMember Title: w{member_title}\nAvatar Flair Image: ![avatar flair image](w{avatar_flair_image})\nAvatar Flair Background Color: w{avatar_flair_background_color}\nVisibility: w{visibility}\nJoin: w{join}\nLeave: w{leave}\nRequest: w{request}\nMention: w{mention}\nMessage: w{message}",
