@@ -20,3 +20,20 @@
     margin-top: 10px;
   }
 }
+
+.container.group .list-controls, .container.group .user-table {
+  padding: 15px;
+  background-color: $secondary;
+  box-sizing: border-box;
+}
+
+.container.group ul {
+  margin-bottom: 0;
+}
+
+.group-members-actions {
+  position: relative;
+  margin-bottom: 10px;
+  top: initial;
+  right: initial;
+}
