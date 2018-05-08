@@ -38,7 +38,15 @@ export default {
 
         renderTemplate() {
           this.render('groups-wrapper');
-        }
+        },
+
+        setupController(model, controller) {
+          this._super(model, controller);
+
+          Ember.run.scheduleOnce('afterRender', () => {
+            $('.people-image').appendTo('.groups-page #main-outlet > section');
+          });
+        },
       });
 
       const groupsIndexController = GroupsIndexController.create();
