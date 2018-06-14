@@ -7,7 +7,7 @@
 register_asset 'stylesheets/civically-group.scss'
 
 DiscourseEvent.on(:custom_wizard_ready) do
-  unless PluginStoreRow.exists?(plugin_name: 'custom_wizard', key: 'group_petition')
+  if !CustomWizard::Wizard.find('group_petition') || Rails.env.development?
     CustomWizard::Wizard.add_wizard(File.read(File.join(
       Rails.root, 'plugins', 'x-civically-group', 'config', 'wizards', 'group_petition.json'
     )))
@@ -80,7 +80,7 @@ after_initialize do
 
         if group.custom_fields['category_id']
           Jobs.enqueue(:bulk_unread_lists_update,
-            place_category_id: group.custom_fields['category_id'],
+            category_id: group.custom_fields['category_id'],
             add_lists: ['group']
           )
         end
@@ -224,10 +224,20 @@ after_initialize do
           groups = Group.visible_groups(current_user)
 
           ## Start of Addition
-          if user_place_category_id = current_user.place_category_id
-            groups = groups.where("groups.id in (
+          if town_category_id = current_user.town_category_id
+            town_groups = groups.where("groups.id in (
               SELECT group_id FROM group_custom_fields WHERE name = 'category_id' AND value = ?
-            )", user_place_category_id.to_s)
+            )", town_category_id.to_s)
+
+            if neighbourhood_category_id = current_user.neighbourhood_category_id
+              neighbourhood_groups = groups.where("groups.id in (
+                SELECT group_id FROM group_custom_fields WHERE name = 'category_id' AND value = ?
+              )", neighbourhood_category_id.to_s)
+
+              groups = groups.from("(#{town_groups.to_sql} UNION #{neighbourhood_groups.to_sql}) AS groups")
+            else
+              groups = town_groups
+            end
           else
             groups = groups.where("groups.id not in (
               SELECT group_id FROM group_custom_fields WHERE name = 'category_id'

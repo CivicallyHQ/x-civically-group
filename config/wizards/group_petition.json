@@ -1,7 +1,7 @@
 {
   "id": "group_petition",
   "name": "Group Petition",
-  "background": "AliceBlue",
+  "theme": "Civically Wizards",
   "save_submissions": true,
   "multiple_submissions": true,
   "min_trust": "2",
@@ -146,7 +146,7 @@
           "custom_category_enabled": true,
           "custom_category_user_field": true,
           "custom_category_wizard_field": false,
-          "custom_category_user_field_key": "custom_fields.place_category_id"
+          "custom_category_user_field_key": "custom_fields.town_category_id"
         }
       ]
     }

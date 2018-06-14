@@ -18,7 +18,7 @@ export default {
       });
 
       api.modifyClass('route:groups-index', {
-        queryParams: Object.assign({}, GroupsIndexRoute.queryParams, {
+        queryParams: $.extend({}, GroupsIndexRoute.queryParams, {
           category_id: { refreshModel: true, replace: true },
           meta: { refreshModel: true, replace: true }
         }),
@@ -27,9 +27,9 @@ export default {
 
         redirect(model, transition) {
           if (Object.keys(transition.queryParams).length === 0) {
-            const placeCategoryId = this.get('currentUser.place_category_id');
-            if (placeCategoryId) {
-              this.replaceWith({queryParams: { category_id: placeCategoryId }});
+            const townCategoryId = this.get('currentUser.town_category_id');
+            if (townCategoryId) {
+              this.replaceWith({queryParams: { category_id: townCategoryId }});
             } else {
               this.replaceWith({queryParams: { meta: true }});
             }

@@ -1,10 +1,10 @@
 <div class='admin-controls'>
   <nav>
     <ul class="nav nav-pills">
-      {{#if currentUser.place_category_id}}
+      {{#if currentUser.town_category_id}}
         <li>
-          {{#link-to "groups" (query-params category_id=currentUser.place_category_id meta=undefined)}}
-            {{place-label currentUser.place_category_id}}
+          {{#link-to "groups" (query-params category_id=currentUser.town_category_id meta=undefined)}}
+            {{place-label currentUser.town_category_id}}
           {{/link-to}}
         </li>
       {{/if}}
