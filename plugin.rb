@@ -12,11 +12,6 @@ DiscourseEvent.on(:custom_wizard_ready) do
       Rails.root, 'plugins', 'x-civically-group', 'config', 'wizards', 'group_petition.json'
     )))
   end
-end
-
-after_initialize do
-  Group.register_custom_field_type('category_id', :integer)
-  Group.preloaded_custom_fields << "category_id" if Group.respond_to? :preloaded_custom_fields
 
   CustomWizard::Builder.add_step_handler('group_petition') do |builder|
     if builder.updater && builder.updater.step && builder.updater.step.id === 'profile'
@@ -30,6 +25,11 @@ after_initialize do
       end
     end
   end
+end
+
+after_initialize do
+  Group.register_custom_field_type('category_id', :integer)
+  Group.preloaded_custom_fields << "category_id" if Group.respond_to? :preloaded_custom_fields
 
   module GroupGuardianExtension
     def can_log_group_changes(group)
