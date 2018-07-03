@@ -134,7 +134,12 @@ after_initialize do
 
     private def group_params
       custom_fields = params.require(:group).permit(custom_fields: [:category_id])[:custom_fields]
-      super.merge(custom_fields: custom_fields)
+
+      if custom_fields
+        super.merge(custom_fields: custom_fields)
+      else
+        super
+      end
     end
   end
 
@@ -296,7 +301,12 @@ after_initialize do
 
     private def group_params(automatic: false)
       custom_fields = params.require(:group).permit(custom_fields: [:category_id])[:custom_fields]
-      super(automatic: false).merge(custom_fields: custom_fields)
+
+      if custom_fields
+        super(automatic: false).merge(custom_fields: custom_fields)
+      else
+        super
+      end
     end
   end
 

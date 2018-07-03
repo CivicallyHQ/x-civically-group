@@ -1,8 +1,7 @@
-<div>
-  <label for="category-id">{{i18n 'admin.groups.category_id'}}</label>
-  {{#if availablePlaces}}
-    {{combo-box value=group.custom_fields.category_id
-                content=availablePlaces
-                filterable=true}}
-  {{/if}}
+<div class="control-group">
+  <label class="control-label">{{i18n 'admin.groups.category_id'}}</label>
+  {{place-select-box value=group.custom_fields.category_id
+                     width=300
+                     filterable=true
+                     includeCountries=true}}
 </div>
