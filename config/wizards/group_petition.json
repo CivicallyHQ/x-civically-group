@@ -8,7 +8,7 @@
   "steps": [
     {
       "id": "intro",
-      "key": "group.petition.intro",
+      "key": "group.petition.intro"
     },
     {
       "id": "profile",
