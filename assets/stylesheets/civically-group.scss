@@ -7,13 +7,19 @@
 
 .groups-page .admin-controls {
   margin-bottom: 15px;
-  background-color: $secondary;
   border-radius: 4px;
+}
+
+.groups-page .admin-controls, .groups-page .admin-controls nav {
+  background-color: $secondary;
+  &:before, &:after {
+    background: none;
+  }
 }
 
 .group-info {
   margin-bottom: 0;
-  
+
   span {
     display: block;
   }

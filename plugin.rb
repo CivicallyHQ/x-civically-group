@@ -85,7 +85,7 @@ after_initialize do
           )
         end
 
-        group.save_custom_fields(true)
+        group
       end
 
       group
@@ -239,7 +239,7 @@ after_initialize do
                 SELECT group_id FROM group_custom_fields WHERE name = 'category_id' AND value = ?
               )", neighbourhood_category_id.to_s)
 
-              groups = groups.from("(#{town_groups.to_sql} UNION #{neighbourhood_groups.to_sql}) AS groups")
+              groups = groups.from("((#{town_groups.to_sql}) UNION (#{neighbourhood_groups.to_sql})) AS groups")
             else
               groups = town_groups
             end
